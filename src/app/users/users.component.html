@@ -1,1 +1,117 @@
-<p>users works!</p>
+<nav
+  class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-slate-500"
+>
+  <div
+    class="container px-4 mx-auto flex flex-wrap items-center justify-between"
+  >
+    <div
+      class="w-full relative flex justify-between lg:w-auto px-4 lg:static lg:block lg:justify-start"
+    >
+      <a
+        class="text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
+      >
+        Dashboard
+      </a>
+    </div>
+    <div class="lg:flex flex-grow items-center" id="example-navbar-warning">
+      <ul
+        class="flex flex-col lg:flex-row list-none ml-auto items-center space-x-10"
+      >
+        <li class="nav-item">
+          <button mat-flat-button color="primary" (click)="createUser()">
+            Create
+          </button>
+        </li>
+        <li class="nav-item">
+          <button mat-flat-button (click)="logout()">
+            Logout
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="p-10 bg-slate-300 h-screen" *ngIf="!loader">
+  <div class="text-center text-2xl mb-10 text-gray-800">Users</div>
+  <div class="m-auto flex justify-end w-3/4">
+    <mat-form-field appearance="outline" class="w-72">
+      <mat-icon matSuffix>search</mat-icon>
+      <input
+        matInput
+        type="search"
+        placeholder="Search Here"
+        #search
+        (input)="filterTable(search.value)"
+      />
+    </mat-form-field>
+  </div>
+  <div class="flex justify-center">
+    <table
+      class="w-3/4 text-center bg-gray-100 text-gray-600 shadow-xl rounded-xl shadow-slate-400 divide-y divide-gray-200"
+    >
+      <thead>
+        <tr>
+          <th
+            class="py-4 px-6 text-md font-medium tracking-wider text-gray-700 uppercase"
+          >
+            Id
+          </th>
+          <th
+            class="py-4 px-6 text-md font-medium tracking-wider text-gray-700 uppercase"
+          >
+            First Name
+          </th>
+          <th
+            class="py-4 px-6 text-md font-medium tracking-wider text-gray-700 uppercase"
+          >
+            Last Name
+          </th>
+          <th
+            class="py-4 px-6 text-md font-medium tracking-wider text-gray-700 uppercase"
+          >
+            Email Id
+          </th>
+          <th
+            class="py-4 px-6 text-md font-medium tracking-wider text-gray-700 uppercase"
+          >
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200">
+        <tr *ngFor="let user of usersList" class="text-sm font-normal">
+          <td class="py-4 px-6 text-gray-900 whitespace-nowrap">
+            {{ user.id }}
+          </td>
+          <td class="py-4 px-6 text-gray-900 whitespace-nowrap">
+            {{ user.first_name }}
+          </td>
+          <td class="py-4 px-6 text-gray-900 whitespace-nowrap">
+            {{ user.last_name }}
+          </td>
+          <td class="py-4 px-6 text-gray-900 whitespace-nowrap">
+            {{ user.email }}
+          </td>
+          <td
+            class="flex space-x-5 justify-center items-center py-4 px-6 text-gray-900 whitespace-nowrap"
+          >
+            <!-- <button
+              mat-icon-button
+              class="bg-gray-200"
+              (click)="viewUser(user.id)"
+            >
+              <mat-icon>remove_red_eye</mat-icon>
+            </button> -->
+            <button mat-flat-button color="primary" (click)="editUser(user)">
+              Edit
+            </button>
+            <button mat-flat-button color="warn" (click)="deleteUser(user.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
