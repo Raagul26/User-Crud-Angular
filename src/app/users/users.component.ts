@@ -71,7 +71,7 @@ export class UsersComponent implements OnInit {
       val.last_name.toLowerCase().includes(searchValue) ||
       `${val.first_name} ${val.last_name}`.toLowerCase().includes(searchValue) ||
       `${val.first_name}${val.last_name}`.toLowerCase().includes(searchValue) ||
-      val.email.toLowerCase().includes(searchValue);
+      val.email_id.toLowerCase().includes(searchValue);
     })
   }
 

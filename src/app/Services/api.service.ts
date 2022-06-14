@@ -18,31 +18,31 @@ export class ApiService {
   }
 
   getAllUsers(): Observable<any> {
-    return this.http.get(`${environment.apiBaseUrl}/users`, {
+    return this.http.get(`${environment.apiBaseUrl}users`, {
       headers: this.getToken()
     });
   } 
 
   getUser(userId: string): Observable<any> {
-    return this.http.get(`${environment.apiBaseUrl}/users/${userId}`, {
+    return this.http.get(`${environment.apiBaseUrl}users/${userId}`, {
       headers: this.getToken()
     });
   }
 
   createUser(body: any): Observable<any> {
-    return this.http.post(`${environment.apiBaseUrl}/user`, body, {
+    return this.http.post(`${environment.apiBaseUrl}user`, body, {
       headers: this.getToken()
     });
   }
 
   updateUser(userId: string, body: any): Observable<any> {
-    return this.http.put(`${environment.apiBaseUrl}/user/${userId}`, body, {
+    return this.http.patch(`${environment.apiBaseUrl}user/${userId}`, body, {
       headers: this.getToken()
     });
   }
 
   deleteUser(userId: string):Observable<any> {
-    return this.http.delete(`${environment.apiBaseUrl}/user/${userId}`, {
+    return this.http.delete(`${environment.apiBaseUrl}user/${userId}`, {
       headers: this.getToken()
     });
   }
