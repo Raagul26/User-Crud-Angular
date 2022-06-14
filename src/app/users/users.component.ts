@@ -16,7 +16,6 @@ export class UsersComponent implements OnInit {
   usersList: any = []
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
-  loader = true
 
   constructor(private apiService: ApiService, private dialog: MatDialog, private router: Router,
     private _snackBar: MatSnackBar,
@@ -24,9 +23,8 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiService.getAllUsers().subscribe((res: any) => {
-      this.users = res.data;
+      this.users = res;
       this.usersList = this.users
-      this.loader = false
     }, (err) => {
       console.log(err)
     })

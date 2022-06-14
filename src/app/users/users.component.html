@@ -8,7 +8,7 @@
       class="w-full relative flex justify-between lg:w-auto px-4 lg:static lg:block lg:justify-start"
     >
       <a
-        class="text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
+        class="text-xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
       >
         Dashboard
       </a>
@@ -32,7 +32,7 @@
   </div>
 </nav>
 
-<div class="p-10 bg-slate-300 h-screen" *ngIf="!loader">
+<div class="p-10 bg-slate-300 h-screen">
   <div class="text-center text-2xl mb-10 text-gray-800">Users</div>
   <div class="m-auto flex justify-end w-3/4">
     <mat-form-field appearance="outline" class="w-72">
@@ -91,7 +91,7 @@
             {{ user.last_name }}
           </td>
           <td class="py-4 px-6 text-gray-900 whitespace-nowrap">
-            {{ user.email }}
+            {{ user.email_id }}
           </td>
           <td
             class="flex space-x-5 justify-center items-center py-4 px-6 text-gray-900 whitespace-nowrap"

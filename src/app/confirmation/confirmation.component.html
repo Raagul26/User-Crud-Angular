@@ -1,0 +1,18 @@
+<div class="p-5 space-y-10">
+    <div class="w-full pt-9 pr-4">
+      <p class="pb-4 text-lg text-red-600">
+        Are you sure you want to delete the user?
+      </p>
+    </div>
+    <div class="flex space-x-10 justify-end">
+      <button mat-stroked-button [mat-dialog-close]="false">Cancel</button>
+      <button
+        mat-flat-button
+        color="warn"
+        [mat-dialog-close]="true"
+        cdkFocusInitial
+      >
+        Delete
+      </button>
+    </div>
+  </div>
